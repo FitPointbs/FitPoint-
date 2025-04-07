@@ -5,12 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fit Point - Tienda</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Montserrat', sans-serif;
       background-color: #0a0a0a;
       color: white;
       margin: 0;
       padding: 0;
+    }
+    nav {
+      background-color: #111;
+      padding: 10px 20px;
+      text-align: center;
+    }
+    nav a {
+      color: #00f0dc;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
     }
     header {
       background-color: #00f0dc;
@@ -18,14 +34,15 @@
       text-align: center;
     }
     header img {
-      height: 80px;
+      height: 120px;
     }
     h1 {
       margin-top: 10px;
       color: #0a0a0a;
+      font-size: 32px;
     }
     .ubicacion {
-      font-size: 14px;
+      font-size: 16px;
       color: #0a0a0a;
     }
     .productos {
@@ -33,6 +50,7 @@
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
       padding: 20px;
+      transition: opacity 0.5s ease;
     }
     .producto {
       background-color: #1c1c1c;
@@ -40,6 +58,11 @@
       border-radius: 10px;
       text-align: center;
       box-shadow: 0 0 10px #00f0dc33;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .producto:hover {
+      transform: scale(1.05);
     }
     .producto img {
       width: 100%;
@@ -47,11 +70,11 @@
       object-fit: contain;
     }
     .producto h2 {
-      font-size: 18px;
+      font-size: 20px;
       margin: 10px 0 5px;
     }
     .producto p {
-      font-size: 14px;
+      font-size: 15px;
       margin: 5px 0;
     }
     .btn {
@@ -63,6 +86,30 @@
       display: inline-block;
       margin-top: 10px;
     }
+    .detalle-producto {
+      display: none;
+      padding: 20px;
+      background-color: #111;
+      text-align: center;
+      animation: fadeIn 0.5s ease;
+    }
+    .detalle-producto.active {
+      display: block;
+    }
+    .volver {
+      display: block;
+      margin: 20px auto 0;
+      background-color: #00f0dc;
+      color: #000;
+      padding: 10px 15px;
+      text-decoration: none;
+      border-radius: 5px;
+      width: fit-content;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
     footer {
       background-color: #111;
       text-align: center;
@@ -72,37 +119,16 @@
   </style>
 </head>
 <body>
+  <nav>
+    <a href="#" onclick="volverAlCatalogo()">Inicio</a>
+    <a href="#" onclick="volverAlCatalogo()">Productos</a>
+    <a href="https://wa.me/5491169326130" target="_blank">Contacto</a>
+  </nav>
+
   <header>
     <img src="logo.png" alt="FitPoint logo">
     <h1>Fit Point Buenos Aires</h1>
     <div class="ubicacion">Puntos de encuentro: Bernal, Quilmes, Wilde | Envíos a toda CABA y GBA</div>
   </header>
-
-  <section class="productos">
-    <div class="producto">
-      <img src="creatina.jpg" alt="Creatina Star Nutrition">
-      <h2>Creatina Monohidratada 300g</h2>
-      <p>Star Nutrition - 60 servicios</p>
-      <a class="btn" href="https://wa.me/5491169326130?text=Hola!%20Quiero%20comprar%20Creatina%20Star%20Nutrition.%20Enviame%20por%20favor%20el%20número%20de%20compra%20y%20los%20datos%20para%20hacer%20el%20pago%20y%20enviar%20el%20comprobante." target="_blank">Comprar</a>
-    </div>
-
-    <div class="producto">
-      <img src="proteina.jpg" alt="Proteína Star Nutrition">
-      <h2>Proteína Whey 2LB Chocolate</h2>
-      <p>Star Nutrition - 30 servicios</p>
-      <a class="btn" href="https://wa.me/5491169326130?text=Hola!%20Quiero%20comprar%20Proteína%20Whey%202LB%20Chocolate.%20Enviame%20por%20favor%20el%20número%20de%20compra%20y%20los%20datos%20para%20hacer%20el%20pago%20y%20enviar%20el%20comprobante." target="_blank">Comprar</a>
-    </div>
-
-    <div class="producto">
-      <img src="shaker.jpg" alt="Shaker Everlast">
-      <h2>Vaso Shaker Everlast 500ml</h2>
-      <p>Con filtro y compartimiento para proteína</p>
-      <a class="btn" href="https://wa.me/5491169326130?text=Hola!%20Estoy%20interesado%20en%20el%20vaso%20shaker%20Everlast.%20Enviame%20por%20favor%20el%20número%20de%20compra%20y%20los%20datos%20para%20hacer%20el%20pago%20y%20enviar%20el%20comprobante." target="_blank">Comprar</a>
-    </div>
-  </section>
-
-  <footer>
-    © 2025 Fit Point - Buenos Aires. Todos los derechos reservados.
-  </footer>
 </body>
 </html>
